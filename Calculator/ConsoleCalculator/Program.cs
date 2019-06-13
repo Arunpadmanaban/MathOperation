@@ -6,6 +6,41 @@ namespace ConsoleCalculator
 {
     class Program
     {
+        interface IOperation
+        {
+            void sum(double value1, double value2);
+            void Subtract(double value1, double value2);
+            void Multiply(double value1, double value2);
+            void Divide(double value1, double value2);
+        }
+        class Operation : IOperation
+        {
+            Calculator calculator = new Calculator();
+            public void Divide(double value1, double value2)
+            {
+                calculator.color = ConsoleColor.Red;
+                calculator.Divide(Convert.ToDouble(value1), Convert.ToDouble(value2));
+
+            }
+
+            public void Multiply(double value1, double value2)
+            {
+                calculator.color = ConsoleColor.Red;
+                calculator.Multiply(Convert.ToDouble(value1), Convert.ToDouble(value2));
+            }
+
+            public void Subtract(double value1, double value2)
+            {
+                calculator.color = ConsoleColor.Red;
+                calculator.Subtract(Convert.ToDouble(value1), Convert.ToDouble(value2));
+            }
+
+            public void sum(double value1, double value2)
+            {
+                calculator.color = ConsoleColor.Red;
+                calculator.Sum(Convert.ToDouble(value1), Convert.ToDouble(value2));
+            }
+        }
         static void Main()
         {
             Console.Write("Type the operation you want to execute (sum, subtract, multiply, divide): ... ");
@@ -19,38 +54,23 @@ namespace ConsoleCalculator
 
             var calculator = new Calculator();
 
+            IOperation operat = new Operation();
 
-
-            if (result == "sum")
+            switch (result.ToLower().ToString())
             {
-                calculator.color = ConsoleColor.Red;
-                calculator.Sum(Convert.ToDouble(n1), Convert.ToDouble(n2));
+                case "sum":
+                    operat.sum(Convert.ToDouble(n1), Convert.ToDouble(n2));
+                    break;
+                case "subtract":
+                    operat.sum(Convert.ToDouble(n1), Convert.ToDouble(n2));
+                    break;
+                case "multiply":
+                    operat.sum(Convert.ToDouble(n1), Convert.ToDouble(n2));
+                    break;
+                case "divide":
+                    operat.sum(Convert.ToDouble(n1), Convert.ToDouble(n2));
+                    break;
             }
-            else
-            {
-                if (result == "subtract")
-                {
-                    calculator.color = ConsoleColor.Red;
-                    calculator.Subtract(Convert.ToDouble(n1), Convert.ToDouble(n2));
-                }
-                else
-                {
-                    if (result == "multiply")
-                    {
-                        calculator.color = ConsoleColor.Red;
-                        calculator.Multiply(Convert.ToDouble(n1), Convert.ToDouble(n2));
-                    }
-                    else
-                    {
-                        if (result == "divide")
-                        {
-                            calculator.color = ConsoleColor.Red;
-                            calculator.Divide(Convert.ToDouble(n1), Convert.ToDouble(n2));
-                        }
-                    }
-                }
-            }
-
             Console.ReadLine();
         }
     }
