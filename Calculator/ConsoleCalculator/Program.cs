@@ -4,10 +4,15 @@ using CalculatorLogic;
 
 namespace ConsoleCalculator
 {
+    /// <summary>
+    ///  Code Review comments:
+    /// Add a description of the class
+    /// </summary>
     class Program
     {
         static void Main()
         {
+            //Code Review comments:
             //Enter value instead of entering the operation to execute.
             //1-sum;2-subtract;3-multiply;4-divide;
             Console.Write("Type the operation you want to execute (sum, subtract, multiply, divide): ... ");
