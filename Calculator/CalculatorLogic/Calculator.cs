@@ -4,8 +4,9 @@ namespace CalculatorLogic
 {
     public class Calculator
     {
+        //Code Review comments:
+        //Add a common method for foregroundcolor and writeline method to display the result
         public ConsoleColor color = ConsoleColor.White;
-
         public double Sum(double a, double b)
         {
             var x = a + b;
